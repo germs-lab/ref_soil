@@ -9,48 +9,51 @@ using namespace std;
 
 int main()
 {
-int OpenFile(string fileInput);
-void CloseFile(string fileInput);
+int OpenFile(FILE **filePoint, string fileInput);
+void CloseFile(FILE **filePoint);
 void PrintFileContents(FILE **filePoint);
 
-char userFile[maxFilename];
+//char userFile[maxFilename];
 FILE *sourcefp;
 string fileInput = "INSDC.csv";
+printf("Start NCBI input\n");
 
-    printf("Start NCBI input\n");
-    
-	OpenFile(fileInput);
-     
-    
-    
+OpenFile(&sourcefp,fileInput);
+
+PrintFileContents(&sourcefp);
+
+CloseFile(&sourcefp);	
+	
 return 0;
 }
 
 // open file for reading
-int OpenFile(string fileInput)
+int OpenFile(FILE **filePoint, string fileInput)
 {
-    FILE *my_stream;
     const char *file = fileInput.c_str();
-    my_stream = fopen (file,"r");
+    *filePoint = fopen (file,"r");
     
-    if (my_stream == NULL){
+    if (filePoint == NULL){
     	printf ("File could not be opened\n");
     }else{
     	printf ("File opened\n");
     }
-    
-
-return 0;
+	return 0;
 }
 
-void CloseFile(string fileInput)
+// close file
+void CloseFile(FILE **filePoint)
 {
-	const char *file = fileInput.c_str();
-	fclose(file); 
-	
+	fclose(*filePoint); 	
 }
 
+//print 
 void PrintFileContents (FILE **filePoint)
 {
+	char info[20];
+	while ((fscanf(*filePoint,"%s",info)) != EOF)
+	{
+		printf("%s\n",info);
+	}
 }
 
