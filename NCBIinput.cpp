@@ -1,31 +1,56 @@
-// usage:  g++ NCBIinput.cpp -o NCBIinput ;gcc NCBIinput.cpp -o NCBIinput
+// usage:  g++ NCBIinput.cpp -o NCBIinput ;gcc NCBIinput.cpp -o NCBIinput 
 // ./NCBIinput
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <stdlib.h>
+
 #define maxFilename 40
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
 int OpenFile(FILE **filePoint, string fileInput);
 void CloseFile(FILE **filePoint);
 void PrintFileContents(FILE **filePoint);
 
-//char userFile[maxFilename];
 FILE *sourcefp;
-string fileInput = "INSDC.csv";
+string fileInput = "refSeqListISNDC.csv";
 printf("Start NCBI input\n");
 
 OpenFile(&sourcefp,fileInput);
 
-PrintFileContents(&sourcefp);
+char info[100];
+string read;
+string delimiter = ",";
+string token;
+size_t pos = 0;
+int delflag=0;
+
+ofstream myfile;
+myfile.open ("refSeqListInputISNDC.txt");
+fscanf(sourcefp,"%s",info);
+
+	while ((fscanf(sourcefp,"%s",info)) != EOF)
+	{
+		read = info;
+		delflag=1;
+		while ((pos = read.find(delimiter)) != string::npos) {
+    		token = read.substr(0, pos);
+    		if(delflag != 1 && token.length() != 0){myfile<<token+"\n";}
+    		delflag++;
+    		read.erase(0, pos + delimiter.length());
+		}//while
+	}//while
 
 CloseFile(&sourcefp);	
-	
+myfile.close();
+   
 return 0;
 }
+
 
 // open file for reading
 int OpenFile(FILE **filePoint, string fileInput)
@@ -46,14 +71,3 @@ void CloseFile(FILE **filePoint)
 {
 	fclose(*filePoint); 	
 }
-
-//print 
-void PrintFileContents (FILE **filePoint)
-{
-	char info[20];
-	while ((fscanf(*filePoint,"%s",info)) != EOF)
-	{
-		printf("%s\n",info);
-	}
-}
-
