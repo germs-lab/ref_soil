@@ -22,6 +22,7 @@ Here is useful command line.
 
 Let me guess you are in the folder 'RefSoil'
 Note: you should have installed 'python' and 'python-biopython'. 
+
 $ cd ..
 
 $ git clone https://github.com/adina/scripts-for-ngs2014.git
