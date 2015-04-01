@@ -1,5 +1,6 @@
-// usage:  g++ NCBIinput.cpp -o NCBIinput ;gcc NCBIinput.cpp -o NCBIinput 
-// ./NCBIinput
+// usage:  g++ Fetchinput.cpp -o Fetchinput ;gcc NCBIinput.cpp -o NCBIinput 
+// ./Fetchinput inputFile outputFile
+// ./Fetchinput RefSoilListJin.csv RefSoilListJin.txt
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@ void CloseFile(FILE **filePoint);
 void PrintFileContents(FILE **filePoint);
 
 FILE *sourcefp;
-string fileInput = "refSeqListISNDC.csv";
+string fileInput = argv[1];
 printf("Start NCBI input\n");
 
 OpenFile(&sourcefp,fileInput);
@@ -30,7 +31,7 @@ size_t pos = 0;
 int delflag=0;
 
 ofstream myfile;
-myfile.open ("refSeqListInputISNDC.txt");
+myfile.open (argv[2]);
 fscanf(sourcefp,"%s",info);
 
 	while ((fscanf(sourcefp,"%s",info)) != EOF)
