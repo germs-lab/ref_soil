@@ -8,11 +8,11 @@ $ git clone https://github.com/germs-lab/RefSoil
 
 $ cd RefSoil
 
-$ g++ NCBIinput.cpp -o NCBIinput
+$ g++ Fetchinput.cpp -o Fetchinput
 
-$ ./NCBIinput
+$ ./Fetchinput RefSoilListJin.csv RefSoilListJin.txt
 
-You will see a file "refSeqListInputISNDC.txt" 
+You will see a file "refSeqListJin.txt" 
 
 You can follow this tutorial to fetch genome fron NCBI and parse 16s
 
@@ -23,15 +23,7 @@ Here is useful command line.
 Let me guess you are in the folder 'RefSoil'
 Note: you should have installed 'python' and 'python-biopython'. 
 
-$ cd ..
-
-$ git clone https://github.com/adina/scripts-for-ngs2014.git
-
-$ cp RefSoil/refSeqListInputISNDC.txt scripts-for-ngs2014
-
-$ cd scripts-for-ngs2014
-
-$ python fetch-genomes.py refSeqListInputISNDC.txt genbank-files
+$ python fetch-genomes2.py refSeqListJin.txt genbank-files
 
 Now you will see around 1000 genes are downloaded.
 
