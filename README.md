@@ -10,7 +10,7 @@ $ cd RefSoil
 
 $ g++ Fetchinput.cpp -o Fetchinput
 
-$ ./Fetchinput RefSoilListJin.csv RefSoilListJin.txt
+$ ./Fetchinput RefSoilListJinUnix.csv RefSoilListJin.txt
 
 You will see a file "refSeqListJin.txt" 
 
