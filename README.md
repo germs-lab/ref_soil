@@ -22,11 +22,16 @@ Here is useful command line.
 
 Let me guess you are in the folder 'RefSoil'
 Note: you should have installed 'python' and 'python-biopython'. 
+Note2: fetch-genomes2.py can fetch full-list of genbank
 
-$ python fetch-genomes2.py refSeqListJin.txt genbank-files
+$ python fetch-genomes2.py RefSoilListJin.txt ../RefSoilgenbank
 
 Now you will see around 1000 genes are downloaded.
 
 To parse 16s,
 
-$ for x in genbank-files/*; do python parse-genbank.py $x > $x.16S.fa; done
+$ for x in ../RefSoilgenbank/*; do python parse-genbank.py $x > $x.16S.fa; done
+
+To get complete genome in fasta format
+
+$ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilCompGenome
