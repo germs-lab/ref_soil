@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include <vector>
+#include <sstream>
 
 #define maxFilename 40
 
@@ -89,16 +90,19 @@ if ((dir = opendir (ca)) != NULL) {
    string filenameDIR=dirname+"/"+ent->d_name;
    filename[filenamenum][0]=filenameDIR;
    filename[filenamenum][2]=ent->d_name;
-   //cout<<filenameDIR<<endl<<flush;
-   //vfilename[filenamenum]=filenameDIR;
+   
    vfilename.push_back(filenameDIR);
-   //cout<<vfilename[filenamenum]<<endl<<flush;
+  
    char const* fica = filenameDIR.c_str();
 
 	size_t size = getFilesize(fica);
 
   int convertdata = static_cast<int>(size);
-	string filesize = to_string(convertdata);
+	//string filesize = to_string(convertdata);
+	//string filesize = lexical_cast<string>(convertdata);
+	ostringstream ostr;
+	ostr << convertdata;
+	string filesize = ostr.str();
 
 	filename[filenamenum][1]=filesize;
 	filenamenum++;
