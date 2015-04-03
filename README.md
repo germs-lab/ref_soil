@@ -30,7 +30,7 @@ Now you will see around 1000 genes are downloaded.
 
 To parse 16s,
 
-$ for x in ../RefSoilgenbank/*; do python parse-genbank.py $x > $x.16S.fa; done
+$ for x in ../RefSoilgenbank/*; do python parse-genbank.py $x > ../RefSoil16s/$x.16S.fa; done
 
 To get complete genome in fasta format
 
