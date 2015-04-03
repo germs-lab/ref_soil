@@ -1,74 +1,78 @@
 // usage:  g++ Fetchinput.cpp -o Fetchinput ;gcc NCBIinput.cpp -o NCBIinput 
 // ./Fetchinput inputFile outputFile
-// ./Fetchinput RefSoilListJin.csv RefSoilListJin.txt
+// ./Fetchinput RefSoilListJinUnix.csv RefSoilListJin.txt
 #include <stdio.h>
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <stdlib.h>
-
+#include <dirent.h>
+#include <vector>
+#include <sstream>
 #define maxFilename 40
 
 using namespace std;
-
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 int main(int argc, char *argv[])
 {
-int OpenFile(FILE **filePoint, string fileInput);
-void CloseFile(FILE **filePoint);
-void PrintFileContents(FILE **filePoint);
 
-FILE *sourcefp;
-string fileInput = argv[1];
-printf("Start NCBI input\n");
+int checkFile(ifstream &input);
 
-OpenFile(&sourcefp,fileInput);
+//file for input
+ifstream inputTable;
+string table;
+inputTable.open(argv[1]);
+vector <vector <string> > data;
+checkFile(inputTable);
 
-char info[100];
-string read;
-string delimiter = ",";
-string token;
-size_t pos = 0;
-int delflag=0;
-
+//file for result
 ofstream myfile;
 myfile.open (argv[2]);
-fscanf(sourcefp,"%s",info);
 
-	while ((fscanf(sourcefp,"%s",info)) != EOF)
-	{
-		read = info;
-		delflag=1;
-		while ((pos = read.find(delimiter)) != string::npos) {
-    		token = read.substr(0, pos);
-    		if(delflag != 1 && token.length() != 0){myfile<<token+"\n";}
-    		delflag++;
-    		read.erase(0, pos + delimiter.length());
-		}//while
-	}//while
+while(getline(inputTable,table))
+{
+	istringstream ss (table);
+		
+	//this add data into the column (second number)
+	vector <string> record;
 
-CloseFile(&sourcefp);	
+		while (ss)
+		{
+			string s1;
+			if(!getline(ss,s1,',')) break;
+			
+			record.push_back(s1);
+		}
+		//this add data into the row (first number)
+		data.push_back(record);
+
+}//while
+inputTable.close();
+
+//output
+for (int i=1;i<data.size();i++){
+	for (int j=1;j<data[i].size();j++){
+		if(data[i][j].length() > 0){
+			myfile<<data[i][j]+"\n";
+		}
+	}
+}
+
+	
 myfile.close();
    
 return 0;
 }
 
 
-// open file for reading
-int OpenFile(FILE **filePoint, string fileInput)
+// check openfile
+int checkFile(ifstream &input)
 {
-    const char *file = fileInput.c_str();
-    *filePoint = fopen (file,"r");
-    
-    if (filePoint == NULL){
-    	printf ("File could not be opened\n");
-    }else{
-    	printf ("File opened\n");
-    }
-	return 0;
-}
-
-// close file
-void CloseFile(FILE **filePoint)
-{
-	fclose(*filePoint); 	
+	if(input.fail()){                           //    Check open
+       cerr << "Can't open file\n";
+       exit(EXIT_FAILURE);
+       //return 1;
+	}else{return 0;}
 }
