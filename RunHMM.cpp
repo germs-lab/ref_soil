@@ -31,7 +31,7 @@ if ((dir = opendir (ca)) != NULL) {
  	string filenameDIR=dirname+"/"+ent->d_name;
  	cout<<filenameDIR<<endl<<flush;
  	token = ent->d_name;
- 	token = token.substr(0,10);
+ 	token = token.substr(0,11);
 	runHMM = "hmmsearch ssu.hmm "+filenameDIR+" > output/"+token+".out";
 	//cout<<runHMM<<endl<<flush;
 	if (token.substr(0,1)!="."){
