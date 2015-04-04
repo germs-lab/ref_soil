@@ -100,3 +100,16 @@ $ clustalo -i RefSoil16s.fa --guidetree-out=RefSoil16s.dnd
 
 You will get tree file : RefSoil16s.dnd
  
+0. what is RunA2.cpp ?
+------
+This is the file that help yuo run AMPHORA2 automatically
+
+The RunA2.cpp need to run in the working directory under AMPHORA2 folder
+Let me say you have this directory structure:
+    RefSoilCompGenome
+    AMPHORA2/Working
+Then, the RunA2.cpp need to run under AMPHORA2/Working
+
+$ g++ RunA2.cpp -o RunA2
+
+$ ./RunA2 ../../RefSoilCompGenome
