@@ -32,11 +32,13 @@ if ((dir = opendir (ca)) != NULL) {
   /* print all the files and directories within directory */
   while ((ent = readdir (dir)) != NULL) {
  	string filenameDIR=dirname+"/"+ent->d_name;
+ 	string fa = ent->d_name;
+ 	if(fa.substr(0,1)!="."){
  	cout<<filenameDIR<<endl<<flush;
  	token = ent->d_name;
- 	token = token.substr(0,10);
+ 	token = token.substr(0,11);
 	myfile<<token+"\n";
-
+	}
   }
   closedir (dir);
 } else {
