@@ -8,11 +8,17 @@ $ git clone https://github.com/germs-lab/RefSoil
 
 $ cd RefSoil
 
+1. Prepare List
+----------
+
 $ g++ Fetchinput.cpp -o Fetchinput
 
 $ ./Fetchinput RefSoilListJinUnix.csv RefSoilListJin.txt
 
 You will see a file "refSeqListJin.txt" 
+
+2. Download Genbank file
+---------
 
 You can follow this tutorial to fetch genome fron NCBI and parse 16s
 
@@ -28,10 +34,69 @@ $ python fetch-genomes2.py RefSoilListJin.txt ../RefSoilgenbank
 
 Now you will see around 1000 genes are downloaded.
 
+3. Parse 16s
+----------
+
 To parse 16s,
 
-$ for x in ../RefSoilgenbank/*; do python parse-genbank.py $x > ../RefSoil16s/$x.16S.fa; done
+$ for x in ../RefSoilgenbank/*; do python parse-genbank.py $x > $x.16S.fa; done
 
+Let's more 16s.fa files into another folder
+
+$ mkdir ../RefSoil16s
+
+$ mv ../RefSoilgenbank/*.16S.fa ../RefSoil16s
+
+4. Treatment of file size 0
+-----------
+
+If some of the 16s file contains nothing, you may want to run HMMer to find 16s in the genome
+
+First, Sort file by case
+case1: don't need to work more
+case2: need to work more
+
+$ g++ FileSort.cc -o FileSort
+
+$ ./FileSort RefSoilListJinUnix.csv ../RefSoil16s case1 case2
+
+Second, Make list for download
+
+$ g++ getFileList.cpp -o getFileList 
+
+$ ./getFileList case2 ListOfFile.txt
+
+Note, Fetchinput make list from file, getFileList make list from folder
+
+Third, download complete genome
 To get complete genome in fasta format
 
+$ python fetch-genomes-fasta.py ListOfFile.txt FullGenomeForHMM
+
+(Option)If you want to download complete gonome for all RefSoil, you can try.
+
 $ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilCompGenome
+
+Fourth, Run HMM
+
+$ g++ RunHMM.cpp -o RunHMM
+
+$ ./RunHMM FullGenomeForHMM
+
+After this, you will need, 
+GetResult.cpp, FetchPartFastaPart.py, ChangeName.cpp
+This will be described later
+
+Finally, let's merge 16s Files into one
+
+$ g++ MergeFiles.cpp -o MergeFiles
+
+$ ./MergeFiles ../RefSoil16s RefSoil16s.fa
+
+5. Clustalo
+------
+
+$ clustalo -i RefSoil16s.fa --guidetree-out=RefSoil16s.dnd
+
+You will get tree file : RefSoil16s.dnd
+ 
