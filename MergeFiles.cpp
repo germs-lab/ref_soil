@@ -1,6 +1,7 @@
 // This program merge all files in the directory into one file
 // usage:  g++ MergeFiles.cpp -o MergeFiles
 // ./MergeFiles List16s(folder) Final16s.fa(file)
+// ./MergeFiles ../RefSoil16s RefSoil16s.fa
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -41,7 +42,8 @@ if ((dir = opendir (ca)) != NULL) {
 	
 	string file = ent->d_name;
  	if (file.substr(0,1)!="."){
- 		input.open(filenameDIR);
+ 		char const* fin = filenameDIR.c_str();
+ 		input.open(fin);
  	
  	if(input.fail()){                           //    Check open
        cerr << "Can't open file\n";
