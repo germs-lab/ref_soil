@@ -25,7 +25,7 @@ void checkDir (string &direc);
 
 
 //arguments
-string fileInput = argv[1];
+//string fileInput = argv[1];
 string dirname = argv[2];
 //case 1 don't need work
 string newdirname1= argv[3];
@@ -38,7 +38,7 @@ string newdirname2= argv[4];
 //file for input
 ifstream inputTable;
 string table;
-inputTable.open(fileInput);
+inputTable.open(argv[1]);
 vector <vector <string> > data;
 checkFile(inputTable);
 
