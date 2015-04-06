@@ -108,7 +108,7 @@ for(int i=1;i<data.size();i++){
 			int flag=0;
 			for (int l=1; l<data[i].size();l++){
 				//search file size
-				if(searchSize(data[i][l],Filedata)!="0" && searchSize(data[i][l],Filedata)!=""){
+				if((searchSize(data[i][l],Filedata)!="0") && (searchSize(data[i][l],Filedata)!="")){
 					flag=1;
 				}
 			}//for
