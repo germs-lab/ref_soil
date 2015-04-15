@@ -11,7 +11,10 @@ if len(sys.argv) != 3:
 
 url_template = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id={0}&seq_start={1}&seq_stop={2}&rettype=fasta&retmode=text"
 
-os.mkdir(sys.argv[2])
+if os.path.exists(sys.argv[2]):
+	print "path exists"
+else :	
+	os.mkdir(sys.argv[2])
 
 for id in open(sys.argv[1]):
     id = id.strip()
