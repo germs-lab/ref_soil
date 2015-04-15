@@ -1,5 +1,5 @@
 # RefSoil
-Script for preparing input file.
+Script for RefSoil DB
 
 ##USAGE:
 Assume you have installed git, GNU c complier(gcc)
@@ -52,7 +52,7 @@ $ mv ../RefSoilgenbank/*.16S.fa ../RefSoil16s
 
 If some of the 16s file contains nothing, you may want to run HMMer to find 16s in the genome
 
-First, Sort file by case
+### First, Sort file by case
 case1: don't need to work more
 case2: need to work more
 
