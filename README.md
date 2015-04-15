@@ -77,14 +77,21 @@ $ python fetch-genomes-fasta.py ListOfFile.txt FullGenomeForHMM
 
 $ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilCompGenome
 
-Fourth, Run HMM
+Fourth, Run HMM(this is 16s hmm Vs RefSeq bacteria DB)
 
-$ g++ RunHMM.cpp -o RunHMM
+$ hmmsearch ssu.hmm /mnt/data1/jin/DBRefSeqBacFna/bacteria.fna > RefSeqHMM16s.output
 
-$ ./RunHMM FullGenomeForHMM
+GetResultHMM
+$ g++ GetResultHMM.cpp -o GetResultHMM
+
+$ ./GetResultHMM RefSeq16sHMM.output RefSeq16sHMM.txt
+
+FetchPartFastaPart.py
+
+$ python FetchPartFastaPart.py RefSeq16sHMM.txt RefSeq16s
 
 After this, you will need, 
-GetResult.cpp, FetchPartFastaPart.py, ChangeName.cpp
+ChangeName.cpp
 This will be described later
 
 Finally, let's merge 16s Files into one
