@@ -1,7 +1,7 @@
 //This script make a file that
 // usage:  g++ GetResultHMM.cpp -o GetResultHMM
 // ./GetResultHMM outputfilename resultfilename
-// ./GetResultHMM output/AE016877.1.out resultfilename.txt
+// ./GetResultHMM RefSeq16sHMM.output RefSeq16sHMM.txt
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -62,7 +62,7 @@ ofstream myfile;
 myfile.open (argv[2]);
 string token;
 	for (int i=0;i<data.size();i++){
-		myfile << data[i][1] +";" + data[i+3][12] +";" + data[i+3][13];
+		myfile << data[i][1] +";" + data[i+3][12] +";" + data[i+3][13]+"\n";
 		i=i+3;	
 	}
 
