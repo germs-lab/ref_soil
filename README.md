@@ -60,7 +60,7 @@ $ g++ FileSort.cc -o FileSort
 
 $ ./FileSort RefSoilListJinUnix.csv ../RefSoil16s case1 case2
 
-Second, Make list for download
+#### Second, Make list for download
 
 $ g++ getFileList.cpp -o getFileList 
 
@@ -68,7 +68,7 @@ $ ./getFileList case2 ListOfFile.txt
 
 Note, Fetchinput make list from file, getFileList make list from folder
 
-Third, download complete genome
+### Third, download complete genome
 To get complete genome in fasta format
 
 $ python fetch-genomes-fasta.py ListOfFile.txt FullGenomeForHMM
@@ -77,24 +77,24 @@ $ python fetch-genomes-fasta.py ListOfFile.txt FullGenomeForHMM
 
 $ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilCompGenome
 
-Fourth, Run HMM(this is 16s hmm Vs RefSeq bacteria DB)
+### Fourth, Run HMM(this is 16s hmm Vs RefSeq bacteria DB)
 
 $ hmmsearch ssu.hmm /mnt/data1/jin/DBRefSeqBacFna/bacteria.fna > RefSeqHMM16s.output
 
-GetResultHMM
+### GetResultHMM
 $ g++ GetResultHMM.cpp -o GetResultHMM
 
 $ ./GetResultHMM RefSeq16sHMM.output RefSeq16sHMM.txt
 
-FetchPartFastaPart.py
+### FetchPartFastaPart.py
 
 $ python FetchPartFastaPart.py RefSeq16sHMM.txt RefSeq16s
 
-After this, you will need, 
+### After this, you will need, 
 ChangeName.cpp
 This will be described later
 
-Finally, let's merge 16s Files into one
+### Finally, let's merge 16s Files into one
 
 $ g++ MergeFiles.cpp -o MergeFiles
 
