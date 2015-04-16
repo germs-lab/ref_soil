@@ -114,18 +114,45 @@ You will get tree file : RefSoil16s.dnd
 ------
 ### get list
 
+$ g++ Fetchinput.cpp -o Fetchinput
+
+$ ./Fetchinput RefSoilListJinUnix.csv RefSoilListJin.txt
+
+You will see a file "refSeqListJin.txt"
+
 ### Download complete genome
+
+$ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilcomp
+
+### merge file
+
+$ g++ MergeFiles.cpp -o MergeFiles
+
+$ ./MergeFiles ../RefSoilcomp ../RefSoilcomp/RefSoil.fa
 
 ### HMM
 
+$ hmmsearch ssu.hmm ../RefSoilcomp/RefSoil.fa > RefSoilHMM16scomp.output
+
 ### Get result from HMM
+
+$ g++ GetResultHMM.cpp -o GetResultHMM
+
+$ ./GetResultHMM RefSoilHMM16scomp.output RefSoil16sHMMcomp.txt
 
 ### Fetch 16s seq
 
+$ python FetchPartFastaPart.py RefSoil16sHMMcomp.txt RefSoil16scomp
+
 ### Merge 16s seq
+
+$ g++ MergeFiles.cpp -o MergeFiles
+
+$ ./MergeFiles RefSoil16scomp Refsoil16scomp.fa
 
 ### Clustalo
 
+$ clustalo -i Refsoil16s.fa --guildtree-out=RefSoil16scom.dnd
 
 
 3. Build tree file from RefSeq-DB, Use	HMM to get 16s
@@ -134,15 +161,33 @@ You will get tree file : RefSoil16s.dnd
 
 ### Make one file
 
+$ g++ MergeFiles.cpp -o MergeFiles
+
+$ ./MergeFiles ../RefSeqbac RefSeqbac.fa
+
 ### HMM
+
+$ hmmsearch ssu.hmm ../RefSeqbac/RefSeqbac.fa > RefSeqbac16s.output
 
 ### Get result from HMM
 
+$ g++ GetResultHMM.cpp -o GetResultHMM
+
+$ ./GetResultHMM RefSeqbac16s.output RefSeqbac16sHMM.txt
+
 ### Fetch 16s seq
+
+$ python FetchPartFastaPart.py RefSeqbac16sHMM.txt RefSeqbac16s
 
 ### Merge 16s
 
+$ g++ MergeFiles.cpp -o MergeFiles
+
+$ ./MergeFiles RefSeqbac16s RefSeqbac16s.fa
+
 ### clustalo
+
+$ clustalo -i RefSeqbac16s.fa --guildetree-out=RefSeqbac16s.dnd
 
 
  
