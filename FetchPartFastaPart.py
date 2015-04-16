@@ -33,6 +33,7 @@ for id in open(sys.argv[1]):
         print "already fetched"
 	else :
     	open(gbk_out_file, "w").write(urllib2.urlopen(s1).read())
+    	
     print "Done"
     time.sleep(1.0/3)
 
