@@ -29,9 +29,10 @@ for id in open(sys.argv[1]):
     sys.stdout.write("Fetching %s..." % id)
     sys.stdout.flush()
     gbk_out_file = os.path.join(sys.argv[2], id + ".fa")
+    
     if os.path.exists(gbk_out_file):
-        print "already fetched"
-	else :
+    	print "already fetched"
+    else :
     	open(gbk_out_file, "w").write(urllib2.urlopen(s1).read())
     	
     print "Done"
