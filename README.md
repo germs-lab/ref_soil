@@ -8,17 +8,17 @@ Script to get 16s tree from  RefSoil-DB amd RefSeq-DB
 ##USAGE:
 Assume you have installed git, GNU c complier(gcc)
 ```
-git clone https://github.com/germs-lab/RefSoil
-cd RefSoil
+$ git clone https://github.com/germs-lab/RefSoil
+$ cd RefSoil
 ```
 1. Build tree file from RefSoil-DB, Use genbank to get 16s
 ----------
 ### Prepare List
 ```
-g++ Fetchinput.cpp -o Fetchinput
-./Fetchinput RefSoilListJinUnix.csv RefSoilListJin.txt
+$ g++ Fetchinput.cpp -o Fetchinput
+$ ./Fetchinput RefSoilList_bac_w_nameV9_17_2015unix.csv RefSoilList.txt
 ```
-You will see a file "refSeqListJin.txt" 
+You will see a file "RefSoilList.txt" 
 
 ### Download Genbank file
 
@@ -33,7 +33,7 @@ Let me guess you are in the folder 'RefSoil'
 Note: you should have installed 'python' and 'python-biopython'. 
 Note2: fetch-genomes2.py can fetch full-list of genbank
 ```
-$ python fetch-genomes2.py RefSoilListJin.txt ../RefSoilgenbank
+$ python fetch-genomes2.py RefSoilList.txt ../RefSoilgenbankV9_17_2015
 ```
 Now you will see around 1000 genes are downloaded.
 
@@ -115,19 +115,24 @@ You will get tree file : RefSoil16s.dnd
 ```
 $ g++ Fetchinput.cpp -o Fetchinput
 
-$ ./Fetchinput RefSoilListJinUnix.csv RefSoilListJin.txt
+$ ./Fetchinput RefSoilList_bac_w_nameV9_17_2015unix.csv RefSoilList.txt
 ```
-You will see a file "refSeqListJin.txt"
+You will see a file "RefSoilList.txt"
 
 ### Download complete genome
 ```
-$ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilcomp
+$ python fetch-genomes-fasta.py RefSoilList.txt ../RefSoilFastaV9_17_2015
 ```
 ### merge file
 ```
 $ g++ MergeFiles.cpp -o MergeFiles
 
 $ ./MergeFiles ../RefSoilcomp ../RefSoilcomp/RefSoil.fa
+```
+
+alternatively
+```
+$ cat ../RefSoilFastaV9_17_2015/*.fa > RefSoilFasta.fa
 ```
 ### HMM
 ```
