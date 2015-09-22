@@ -1,0 +1,30 @@
+Dermacoccus nishinomiyaensis M25
+Nakamurella multipartita Y-104, DSM 44233
+Corynebacterium ureicelerivorans IMMIB RIV-2301
+Trueperella pyogenes TP6375
+Cellulomonas gilvus ATCC 13127
+Mycobacterium avium paratuberculosis K-10
+Mycobacterium ulcerans Agy99
+Renibacterium salmoninarum ATCC 33209
+Pseudonocardia dioxanivorans CB1190
+Corynebacterium pseudotuberculosis 48252
+Clavibacter michiganensis michiganensis NCPPB 382
+Clavibacter michiganensis nebraskensis NCPPB 2581
+Clavibacter michiganensis sepedonicus ATCC 33113
+Corynebacterium diphtheriae 241
+Corynebacterium diphtheriae 31A
+Corynebacterium diphtheriae BH8
+Corynebacterium diphtheriae C7 (beta)
+Corynebacterium diphtheriae CDCE 8392
+Corynebacterium diphtheriae PW8
+Corynebacterium diphtheriae VA01
+Corynebacterium pseudotuberculosis 1/06-A
+Corynebacterium pseudotuberculosis 1002
+Corynebacterium pseudotuberculosis 258
+Corynebacterium pseudotuberculosis 3/99-5
+Corynebacterium pseudotuberculosis 31
+Corynebacterium pseudotuberculosis 316
+Corynebacterium pseudotuberculosis C231
+Corynebacterium pseudotuberculosis CIP52.97
+Corynebacterium pseudotuberculosis FRC41
+Corynebacterium pseudotuberculosis I19
