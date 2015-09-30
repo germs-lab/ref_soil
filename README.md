@@ -146,9 +146,13 @@ $ python FetchPartFastaPart.py RefSoil16sHMMfasta.txt RefSoil16sFasta
 ```
 $ cat RefSoil16sFasta/*.fa > RefSoil16sHMMFasta.fa
 ```
+### replace : into space
+```
+$ sed s/:/' '/ RefSoil16sHMMFasta.fa > RefSoil16sHMMFastaNS.fa
+
 ### Clustalo
 ```
-$ clustalo -i RefSoil16sHMMFasta.fa --guildtree-out=RefSoil16sFasta.dnd
+$ clustalo -i RefSoil16sHMMFastaNS.fa --guidetree-out=RefSoil16sHMMFastaNS.dnd
 ```
 
 3. Build tree file from RefSeq-DB, Use	HMM to get 16s
