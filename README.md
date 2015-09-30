@@ -149,7 +149,7 @@ $ cat RefSoil16sFasta/*.fa > RefSoil16sHMMFasta.fa
 ### replace : into space
 ```
 $ sed s/:/' '/ RefSoil16sHMMFasta.fa > RefSoil16sHMMFastaNS.fa
-
+```
 ### Clustalo
 ```
 $ clustalo -i RefSoil16sHMMFastaNS.fa --guidetree-out=RefSoil16sHMMFastaNS.dnd
