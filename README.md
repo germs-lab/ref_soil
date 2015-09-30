@@ -41,13 +41,13 @@ Now you will see around 1000 genes are downloaded.
 
 To parse 16s,
 ```
-$ for x in ../RefSoilgenbank/*; do python parse-genbank.py $x > $x.16S.fa; done
+$ for x in ../RefSoilgenbankV9_17_2015/*; do python parse-genbank.py $x > $x.16S.fa; done
 ```
-Let's more 16s.fa files into another folder
+Let's move 16s.fa files into another folder
 ```
 $ mkdir ../RefSoil16s
 
-$ mv ../RefSoilgenbank/*.16S.fa ../RefSoil16s
+$ mv ../RefSoilgenbankV9_17_2015/*.16S.fa ../RefSoil16s
 ```
 ### Treatment of file size 0
 
@@ -125,38 +125,30 @@ $ python fetch-genomes-fasta.py RefSoilList.txt ../RefSoilFastaV9_17_2015
 ```
 ### merge file
 ```
-$ g++ MergeFiles.cpp -o MergeFiles
-
-$ ./MergeFiles ../RefSoilcomp ../RefSoilcomp/RefSoil.fa
-```
-
-alternatively
-```
 $ cat ../RefSoilFastaV9_17_2015/*.fa > RefSoilFasta.fa
 ```
 ### HMM
 ```
-$ hmmsearch ssu.hmm ../RefSoilcomp/RefSoil.fa > RefSoilHMM16scomp.output
+$ hmmsearch ssu.hmm RefSoilFasta.fa > RefSoilHMM16sFasta.output
 ```
+Note: if you don't have	hmmer, install (apt-get	install	hmmer)
 ### Get result from HMM
 ```
 $ g++ GetResultHMM.cpp -o GetResultHMM
 
-$ ./GetResultHMM RefSoilHMM16scomp.output RefSoil16sHMMcomp.txt
+$ ./GetResultHMM RefSoilHMM16sFasta.output RefSoil16sHMMfasta.txt
 ```
 ### Fetch 16s seq
 ```
-$ python FetchPartFastaPart.py RefSoil16sHMMcomp.txt RefSoil16scomp
+$ python FetchPartFastaPart.py RefSoil16sHMMfasta.txt RefSoil16sFasta
 ```
 ### Merge 16s seq
 ```
-$ g++ MergeFiles.cpp -o MergeFiles
-
-$ ./MergeFiles RefSoil16scomp Refsoil16scomp.fa
+$ cat RefSoil16sFasta/*.fa > RefSoil16sHMMFasta.fa
 ```
 ### Clustalo
 ```
-$ clustalo -i Refsoil16s.fa --guildtree-out=RefSoil16scom.dnd
+$ clustalo -i RefSoil16sHMMFasta.fa --guildtree-out=RefSoil16sFasta.dnd
 ```
 
 3. Build tree file from RefSeq-DB, Use	HMM to get 16s
@@ -173,6 +165,7 @@ $ ./MergeFiles ../RefSeqbac RefSeqbac.fa
 ```
 $ hmmsearch ssu.hmm ../RefSeqbac/RefSeqbac.fa > RefSeqbac16s.output
 ```
+Note: if you don't have hmmer, install (apt-get install hmmer)
 ### Get result from HMM
 ```
 $ g++ GetResultHMM.cpp -o GetResultHMM
