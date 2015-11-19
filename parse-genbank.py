@@ -17,7 +17,7 @@ for record in list(SeqIO.parse(sys.argv[1], 'genbank')):
                 end = feat.location.end.position
                 pos = [start, end]
                 l.append(pos)
-                print '>' + sys.argv[1].split('.')[0] + org + ' '+ '16S rRNA gene' + str(n)                
+                print '>' + record.id  + org + ' '+ '16S rRNA gene' + str(n)                
             #            print '>' + sys.argv[1].split('.')[0] + ' 16S rRNA gene ' + str(n) 
                 print feat.extract(genome.seq)
                 n =+ 1
