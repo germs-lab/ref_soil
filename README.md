@@ -16,7 +16,7 @@ $ cd RefSoil
 ### Prepare List
 ```
 $ g++ Fetchinput.cpp -o Fetchinput
-$ ./Fetchinput RefSoilList_bac_w_nameV9_17_2015unix.csv RefSoilList.txt
+$ ./Fetchinput RefSoilList_bac_w_nameV11_17_2015.unix.csv RefSoilList.txt
 ```
 You will see a file "RefSoilList.txt" 
 
@@ -33,7 +33,7 @@ Let me guess you are in the folder 'RefSoil'
 Note: you should have installed 'python' and 'python-biopython'. 
 Note2: fetch-genomes2.py can fetch full-list of genbank
 ```
-$ python fetch-genomes2.py RefSoilList.txt ../RefSoilgenbankV9_17_2015
+$ python fetch-genomes2.py RefSoilList.txt ../RefSoilgenbank_v11_17_2015
 ```
 Now you will see around 1000 genes are downloaded.
 
@@ -41,13 +41,13 @@ Now you will see around 1000 genes are downloaded.
 
 To parse 16s,
 ```
-$ for x in ../RefSoilgenbankV9_17_2015/*; do python parse-genbank.py $x > $x.16S.fa; done
+$ for x in ../RefSoilgenbank_v11_17_2015/*; do python parse-genbank.py $x > $x.16S.fa; done
 ```
 Let's move 16s.fa files into another folder
 ```
 $ mkdir ../RefSoil16s
 
-$ mv ../RefSoilgenbankV9_17_2015/*.16S.fa ../RefSoil16s
+$ mv ../RefSoilgenbank_v11_17_2015/*.16S.fa ../RefSoil16s
 ```
 ### Treatment of file size 0
 
@@ -60,7 +60,7 @@ case2: need to work more
 ```
 $ g++ FileSort.cc -o FileSort
 
-$ ./FileSort RefSoilListJinUnix.csv ../RefSoil16s case1 case2
+$ ./FileSort RefSoilList_bac_w_nameV11_17_2015.unix.csv ../RefSoil16s case1 case2
 ```
 #### Second, Make list for download
 ```
@@ -79,33 +79,37 @@ $ python fetch-genomes-fasta.py ListOfFile.txt FullGenomeForHMM
 ```
 $ python fetch-genomes-fasta.py RefSoilListJin.txt ../RefSoilCompGenome
 ```
+#### merge file
+```
+$ cat FullGenomeForHMM/*.fa > MissingFasta.fa
+```
 #### Fourth, Run HMM(this is 16s hmm Vs RefSeq bacteria DB)
 ```
-$ hmmsearch ssu.hmm /mnt/data1/jin/DBRefSeqBacFna/bacteria.fna > RefSeqHMM16s.output
+$ hmmsearch ssu.hmm MissingFasta.fa > RefSoilHMM16s.output
 ```
 #### GetResultHMM
 ```
 $ g++ GetResultHMM.cpp -o GetResultHMM
 
-$ ./GetResultHMM RefSeq16sHMM.output RefSeq16sHMM.txt
+$ ./GetResultHMM RefSoilHMM16s.output RefSoil16sHMM.txt
 ```
 #### FetchPartFastaPart.py
 ```
-$ python FetchPartFastaPart.py RefSeq16sHMM.txt RefSeq16s
+$ python FetchPartFastaPart.py RefSoil16sHMM.txt RefSoil16s
 ```
-#### After this, you will need, 
-ChangeName.cpp
-This will be described later
-
+#### change name and merge
+```
+$ for x in RefSoil16s/*; do python changename.py $x;done
+$ cat RefSoil16s/*.fa > HMM16smerged.fa
+```
 #### Finally, let's merge 16s Files into one
 ```
-$ g++ MergeFiles.cpp -o MergeFiles
-
-$ ./MergeFiles ../RefSoil16s RefSoil16s.fa
+$ cat ../RefSoil16s/*.fa > RefSoil16sGenbank.fa
+$ cat RefSoil16sGenbank.fa HMM16smerged.fa > RefSoil16sGenbank_HMM.fa
 ```
 ### Clustalo
 ```
-$ clustalo -i RefSoil16s.fa --guidetree-out=RefSoil16s.dnd
+$ clustalo -i RefSoil16sGenbank_HMM.fa --guidetree-out=RefSoil16sGenbank_HMM.dnd
 ```
 You will get tree file : RefSoil16s.dnd
 
