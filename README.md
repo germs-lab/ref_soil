@@ -194,3 +194,10 @@ $ ./MergeFiles RefSeqbac16s RefSeqbac16s.fa
 ```
 $ clustalo -i RefSeqbac16s.fa --guildetree-out=RefSeqbac16s.dnd
 ```
+
+
+## Find Tax information
+```
+for x in ../RefSoilgenbank_v11_17_2015/*;do python GenbankToTax.py $x;done > RefSoilTax.txt
+python TaxFinder2.py RefSoilTax.txt RefSoilFullTax_w_id.txt
+```
