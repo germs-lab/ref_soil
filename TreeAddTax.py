@@ -25,8 +25,8 @@ for i in range(len(Tax)):
         if (classColor[j][0]==Tax[i][2]):
             tempColor = classColor[j][1]
     NoDocTax = Tax[i][0].split('.')
-    fwrite.write(NoDocTax[0]+'\t'+"annotation"+'\t'+Tax[i][2]+'\n')
-    fwrite.write(NoDocTax[0]+'\t'+"annotation_background_color"+'\t'+tempColor+'\n')
+    #fwrite.write(NoDocTax[0]+'\t'+"annotation"+'\t'+Tax[i][2]+'\n')
+    #fwrite.write(NoDocTax[0]+'\t'+"annotation_background_color"+'\t'+tempColor+'\n')
     fwrite.write(NoDocTax[0]+'\t'+"clade_marker_color"+'\t'+tempColor+'\n')
     fwrite.write(NoDocTax[0]+'\t'+"clade_marker_size"+'\t'+"30"+'\n')
     fwrite.write(NoDocTax[0]+'\t'+"clade_marker_edge_width"+'\t'+"0.1"+'\n')
