@@ -24,7 +24,7 @@ for item in l_id:
             fwrite.write(item[0]+'\t'+item[1]+'\t')
             taxID=""
             lenID = len(taxID)
-            lenCut = 169+lenID
+            lenCut = 163+lenID
     
             startK = line.find("TITLE=\"superkingdom\">")
             startK = startK + 21
