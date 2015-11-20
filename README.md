@@ -107,9 +107,13 @@ $ cat RefSoil16s/*.fa > HMM16smerged.fa
 $ cat ../RefSoil16s/*.fa > RefSoil16sGenbank.fa
 $ cat RefSoil16sGenbank.fa HMM16smerged.fa > RefSoil16sGenbank_HMM.fa
 ```
+### make clean fasta
+```
+$ python CleanFasta.py RefSoil16sGenbank_HMM.fa RefSoil16sGenbank_HMM_clean.fa
+```
 ### Clustalo
 ```
-$ clustalo -i RefSoil16sGenbank_HMM.fa --guidetree-out=RefSoil16sGenbank_HMM.dnd
+$ clustalo -i RefSoil16sGenbank_HMM_clean.fa --guidetree-out=RefSoil16sGenbank_HMM.dnd
 ```
 You will get tree file : RefSoil16s.dnd
 
