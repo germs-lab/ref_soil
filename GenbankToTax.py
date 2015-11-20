@@ -6,7 +6,10 @@ import sys
 fread = open(sys.argv[1])
 
 line = fread.readline()
-tempcol = line.strip().split('\t')
+line = fread.readline()
+line = fread.readline()
+line = fread.readline()
+tempcol = line.strip().split('     ')
 print tempcol
 
 for line in fread:
