@@ -5,12 +5,8 @@ import sys
 
 fread = open(sys.argv[1])
 
-line = fread.readline()
-line = fread.readline()
-line = fread.readline()
-line = fread.readline()
-tempcol = line.strip().split(' ')
-print tempcol
+filename = sys.argv[1].split('/')
+print filename
 
 for line in fread:
     if ("taxon:" in line):
