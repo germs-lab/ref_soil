@@ -9,7 +9,7 @@ line = fread.readline()
 line = fread.readline()
 line = fread.readline()
 line = fread.readline()
-tempcol = line.strip().split('     ')
+tempcol = line.strip().split(' ')
 print tempcol
 
 for line in fread:
