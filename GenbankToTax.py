@@ -1,15 +1,15 @@
 #!/usr/bin/python
-# python GenbankToTax.py input.gbk output.txt
+# python GenbankToTax.py input.gbk
 
 import sys
 
 fread = open(sys.argv[1],'r')
-fwrite = open(sys.argv[2],'w')
+
 filename = sys.argv[1].split('/')
-fwrite.write(filename[len(filename)-1][:-4]+'\t')
+ID = filename[len(filename)-1][:-4]
 
 for line in fread:
     if ("taxon:" in line):
         tempcol = line.strip().split(":")
-        fwrite.write(tempcol[1][:-1]+'\n')
+        print ID+'\t'+tempcol[1][:-1]
         break
