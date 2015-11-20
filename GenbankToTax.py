@@ -3,8 +3,8 @@
 
 import sys
 
-fread = open(sys.argv[1])
-fwrite = open(sys.argv[2])
+fread = open(sys.argv[1],'r')
+fwrite = open(sys.argv[2],'w')
 filename = sys.argv[1].split('/')
 fwrite.write(filename[len(filename)-1][:-4]+'\t')
 
