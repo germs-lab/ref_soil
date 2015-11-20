@@ -6,7 +6,7 @@ import sys
 fread = open(sys.argv[1])
 
 filename = sys.argv[1].split('/')
-print filename
+print filename[len(filename)-1][:-3]
 
 for line in fread:
     if ("taxon:" in line):
