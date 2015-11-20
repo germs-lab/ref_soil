@@ -8,5 +8,5 @@ fread = open(sys.argv[1])
 for line in fread:
     if ("taxon:" in line):
         tempcol = line.strip().split(":")
-        print tempcol[1]+'\n'
+        print tempcol[1][:-1]
         break
