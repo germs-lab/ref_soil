@@ -7,7 +7,7 @@ fread = open(sys.argv[1])
 
 line = fread.readline()
 tempcol = line.strip().split('\t')
-print tempcol[1]
+print tempcol
 
 for line in fread:
     if ("taxon:" in line):
