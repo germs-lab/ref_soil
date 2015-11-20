@@ -12,6 +12,7 @@ fwrite = open(sys.argv[1],'w')
 for i in range(len(temp)):
     if(temp[i][:1]=='>'):
         filename = sys.argv[1].split('/')
-        fwrite.write('>'+filename[len(filename)-1]+' '+temp[i][1:]+' 16S rRNA gene'+'\n')
+        thisname = filename[len(filename)-1][:-2].split('.')
+        fwrite.write('>'+thisname+' '+temp[i][1:]+' 16S rRNA gene'+'\n')
     else :
         fwrite.write(temp[i]+'\n')
