@@ -205,3 +205,7 @@ $ clustalo -i RefSeqbac16s.fa --guildetree-out=RefSeqbac16s.dnd
 for x in ../RefSoilgenbank_v11_17_2015/*;do python GenbankToTax.py $x;done > RefSoilTax.txt
 python TaxFinder2.py RefSoilTax.txt RefSoilFullTax_w_id.txt
 ```
+
+## below here about new id
+uniq_id_remove_error.txt contains non-redundant ncbi id after remove error
+id_for_download.txt contains all ncbi id for download genbank file
