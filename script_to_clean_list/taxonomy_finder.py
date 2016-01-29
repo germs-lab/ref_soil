@@ -83,6 +83,7 @@ def full(filename):
     taxon = ""
     flag = 0
     plasmid = 0
+    full_tax = ""
     for gbline in fread:
         if ("LOCUS" in gbline):
             locus = gbline.strip().split(" ")[7]
@@ -94,12 +95,12 @@ def full(filename):
             flag = 1
         if (gbline.strip()[:2] == "//" and plasmid == 0):
             flist = get_taxonomy(locus,taxon)
-            full_tax = ""
+            #full_tax = ""
             for item in flist:
                 full_tax = full_tax + item+'\t'
-            print full_tax
+            #print full_tax
             flag = 0
         elif (gbline.strip()[:2] == "//" and plasmid == 1):
             plasmid = 0
 
-    return 0
+    return full_tax
