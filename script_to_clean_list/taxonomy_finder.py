@@ -4,7 +4,8 @@ import cStringIO
 import pycurl
 
 def get_taxonomy(locus,taxon):
-    flist = [locus,taxon]
+    #flist = [locus,taxon]
+    flist = []
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
     c.setopt(c.URL, 'http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=' + taxon)
