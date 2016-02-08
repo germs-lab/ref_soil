@@ -1,5 +1,11 @@
 # RefSoil
-Script to get 16s tree from  RefSoil-DB amd RefSeq-DB
+This repository provide the list of reference soil. (RefSoil_v1.txt)
+
+### RefSoil_v1.txt
+Each colume represents: uniq ID, chromosomes, version, taxon ID, Definition, Organism, Full taxonomy
+
+
+##Script to get 16s tree from  RefSoil-DB and RefSeq-DB
 
 1. If you want to build tree file from RefSoil-DB, use genbank-file to get 16s
 2. If you want to build tree file from RefSoil-DB, use HMM to get 16s
