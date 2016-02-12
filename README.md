@@ -4,7 +4,9 @@ This repository provide the list of reference soil. (RefSoil_v1.txt)
 ### RefSoil_v1.txt
 Each colume represents: uniq ID, chromosomes, version, taxon ID, Definition, Organism, Full taxonomy
 
+RefSoil version 1 contains 928 genomes (888 bacteria, 34 archaea, 6 fungi) and 1070 chromosomes
 
+This page shows how to build 16s tree of RefSoil(version1)
 ##Script to get 16s tree from  RefSoil-DB and RefSeq-DB
 
 1. If you want to build tree file from RefSoil-DB, use genbank-file to get 16s
@@ -14,17 +16,16 @@ Each colume represents: uniq ID, chromosomes, version, taxon ID, Definition, Org
 ##USAGE:
 Assume you have installed git, GNU c complier(gcc)
 ```
-$ git clone https://github.com/germs-lab/RefSoil
-$ cd RefSoil
+$ git clone https://github.com/germs-lab/ref_soil.git
+$ cd ref_soil
 ```
 1. Build tree file from RefSoil-DB, Use genbank to get 16s
 ----------
 ### Prepare List
 ```
-$ g++ Fetchinput.cpp -o Fetchinput
-$ ./Fetchinput RefSoilList_bac_w_nameV11_17_2015.unix.csv RefSoilList.txt
+python get_list_for_download_from_RefSoil.py RefSoil_v1.txt
 ```
-You will see a file "RefSoilList.txt" 
+Then you will see three files: RefSoil_v1.txt.archaea.txt, RefSoil_v1.txt.bacteria.txt, RefSoil_v1.txt.fungi.txt
 
 ### Download Genbank file
 
@@ -39,7 +40,7 @@ Let me guess you are in the folder 'RefSoil'
 Note: you should have installed 'python' and 'python-biopython'. 
 Note2: fetch-genomes2.py can fetch full-list of genbank
 ```
-$ python fetch-genomes2.py RefSoilList.txt ../RefSoilgenbank_v11_17_2015
+$ python fetch-genomes2.py RefSoil_v1.txt.bacteria.txt ../RefSoil_v1_bacteria
 ```
 Now you will see around 1000 genes are downloaded.
 
@@ -47,13 +48,13 @@ Now you will see around 1000 genes are downloaded.
 
 To parse 16s,
 ```
-$ for x in ../RefSoilgenbank_v11_17_2015/*; do python parse-genbank.py $x > $x.16S.fa; done
+$ for x in ../RefSoil_v1_bacteria/*.gbk; do python parse-genbank.py $x > $x.16S.fa; done
 ```
 Let's move 16s.fa files into another folder
 ```
 $ mkdir ../RefSoil16s
 
-$ mv ../RefSoilgenbank_v11_17_2015/*.16S.fa ../RefSoil16s
+$ mv ../RefSoil_v1_bacteria/*.16S.fa ../RefSoil16s
 ```
 ### Treatment of file size 0
 
@@ -215,3 +216,11 @@ python TaxFinder2.py RefSoilTax.txt RefSoilFullTax_w_id.txt
 ## below here about new id
 uniq_id_remove_error.txt contains non-redundant ncbi id after remove error
 id_for_download.txt contains all ncbi id for download genbank file
+
+
+### below here is not used anymore
+```
+$ g++ Fetchinput.cpp -o Fetchinput
+$ ./Fetchinput RefSoilList_bac_w_nameV11_17_2015.unix.csv RefSoilList.txt
+```
+You will see a file "RefSoilList.txt"
