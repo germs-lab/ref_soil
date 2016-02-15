@@ -94,7 +94,7 @@ if ((dir = opendir (ca)) != NULL) {
   perror ("");
   return EXIT_FAILURE;
 }
-//printMatrix(data);
+printMatrix(data);
 
 //***********************
 // compare
