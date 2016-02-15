@@ -21,6 +21,7 @@ $ cd ref_soil
 ```
 1. Build tree file from RefSoil-DB, Use genbank to get 16s
 ----------
+This documentation shows building 16s tree for Bacteria.
 ### Prepare List
 ```
 python get_list_for_download_from_RefSoil.py RefSoil_v1.txt
@@ -44,7 +45,7 @@ Note2: fetch-genomes2.py can fetch full-list of genbank
 ```
 $ python fetch-genomes2.py RefSoil_v1.txt.bacteria.txt ../RefSoil_v1_bacteria
 ```
-Now you will see around 1000 genes are downloaded.
+Now you will see 981 genbank files are downloaded.
 
 ### Parse 16s
 
@@ -71,6 +72,18 @@ $ cat RefSoil_v1.txt|cut -f3 > RefSoil_v1_version.txt
 $ g++ FileSort.cc -o FileSort
 $ ./FileSort RefSoil_v1_version.txt ../RefSoil16s case1 case2
 ```
+
+#### Now, merge file
+```
+cat ../RefSoil16s/*.fa > merged16s.fa
+```
+
+### check multiple chromosome
+```
+$ cat RefSoil_v1.txt|cut -f2 > RefSoil_v1_chromosome.txt
+$ python check_duplicated_16s.py RefSoil_v1_chromosome.txt merged16s.fa > genbank_16s.fa
+```
+
 #### Second, Make list for download
 ```
 $ g++ getFileList.cpp -o getFileList 
