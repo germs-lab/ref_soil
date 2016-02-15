@@ -94,7 +94,7 @@ if ((dir = opendir (ca)) != NULL) {
   perror ("");
   return EXIT_FAILURE;
 }
-printMatrix(data);
+//printMatrix(data);
 
 //***********************
 // compare
@@ -106,7 +106,7 @@ for(int i=1;i<data.size();i++){
 			cout<<data[i][j]<<endl<<flush;
 			//go throurth row
 			int flag=0;
-			for (int l=1; l<data[i].size();l++){
+			for (int l=0; l<data[i].size();l++){
 				//search file size
 				if((searchSize(data[i][l],Filedata)!="0") && (searchSize(data[i][l],Filedata)!="")){
 					flag=1;
