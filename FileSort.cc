@@ -100,7 +100,7 @@ if ((dir = opendir (ca)) != NULL) {
 // compare
 //***********************
 for(int i=1;i<data.size();i++){
-	for(int j=1;j<data[i].size();j++){
+	for(int j=0;j<data[i].size();j++){
 		//search file size
 		if(searchSize(data[i][j],Filedata)=="0"){
 			cout<<data[i][j]<<endl<<flush;
