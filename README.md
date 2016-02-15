@@ -37,7 +37,9 @@ http://adina-howe.readthedocs.org/en/latest/ncbi/index.html
 Here is useful command line.
 
 Let me guess you are in the folder 'RefSoil'
+
 Note: you should have installed 'python' and 'python-biopython'. 
+
 Note2: fetch-genomes2.py can fetch full-list of genbank
 ```
 $ python fetch-genomes2.py RefSoil_v1.txt.bacteria.txt ../RefSoil_v1_bacteria
@@ -65,9 +67,9 @@ If some of the 16s file contains nothing, you may want to run HMMer to find 16s 
 case1: don't need to work more
 case2: need to work more
 ```
+$ cat RefSoil_v1.txt|cut -f3 > RefSoil_v1_version.txt
 $ g++ FileSort.cc -o FileSort
-
-$ ./FileSort RefSoilList_bac_w_nameV11_17_2015.unix.csv ../RefSoil16s case1 case2
+$ ./FileSort RefSoil_v1_version.txt ../RefSoil16s case1 case2
 ```
 #### Second, Make list for download
 ```
