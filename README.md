@@ -6,14 +6,12 @@ Each colume represents: uniq ID, chromosomes, version, taxon ID, Definition, Org
 
 RefSoil version 1 contains 928 genomes (888 bacteria, 34 archaea, 6 fungi) and 1070 chromosomes
 
-This page shows how to build 16s tree of RefSoil(version1)
-##Script to get 16s tree from  RefSoil-DB and RefSeq-DB
 
-1. If you want to build tree file from RefSoil-DB, use genbank-file to get 16s
-2. If you want to build tree file from RefSoil-DB, use HMM to get 16s
-3. If you want to build tree file from RefSeq-DB, use HMM to get 16s
+##Script to get 16s tree for RefSoil-DB
 
-##USAGE:
+This page describe the detail how to generate 16s tree of RefSeq: the tree is built using genbank file from RefSeq to retrive 16s. If 16s sequence is not present, HMM is used to find 16s sequence.
+
+##required:
 Assume you have installed git, GNU c complier(gcc)
 ```
 $ git clone https://github.com/germs-lab/ref_soil.git
@@ -134,7 +132,17 @@ $ python CleanFasta.py RefSoil16sGenbank_HMM.fa RefSoil16sGenbank_HMM_clean.fa
 ```
 
 ### now make tree
+```
+$ cd ~
+$ wget http://eddylab.org/software/ssu-align/ssu-align-0.1.tar.gz
+$ tar xfz ssu-align-0.1.tar.gz
+$ cd ssu-align-0.1
+$ ./configure
+$ make
+```
+back to original folder
 
+##below here, not used
 
 ### Clustalo
 ```
