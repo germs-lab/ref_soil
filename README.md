@@ -160,6 +160,18 @@ python MakeAnno_RefSoil_no_ring.py RefSoil_v1.txt.split.bacteria.txt RefSoil_bac
 graphlan_annotate.py --annot RefSoil_bacAnno.txt RefSoil_bac.tree step2.xml
 graphlan.py step2.xml step2.png --dpi 300 --size 15 --pad 0.6
 ```
+step3
+```
+python MakeAnno_RefSoil_first_ring.py RefSoil_v1.txt.split.bacteria.txt RefSoilAnno_ring1.txt
+graphlan_annotate.py --annot RefSoilAnno_ring1.txt step2.xml step3.xml
+graphlan.py step3.xml step3.png --dpi 300 --size 15 --pad 0.6
+```
+step4 : add legend
+```
+python MakeAnno_RefSoil_legend.py RefSoil_v1.txt.split.bacteria.txt legend_anno.txt
+graphlan_annotate.py --annot legend_anno.txt step3.xml step4.xml
+graphlan.py step4.xml step4.png --dpi 300 --size 15 --pad 0.6 --external_legends
+```
 ##below here, not used
 
 ### Clustalo
