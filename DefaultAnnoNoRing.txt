@@ -1,4 +1,4 @@
-title	RefSoil (tree of reference soil, around 1034 genomes)
+title	RefSoil (tree of reference soil, 886 bacterial genomes)
 title_font_size	25
 total_plotted_degrees	340
 start_rotation	270
