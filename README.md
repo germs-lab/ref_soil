@@ -150,7 +150,16 @@ $ ./FastTree -nt < RefSoil_bac_ali.afa > RefSoil_bac.tree
 ```
 
 ### plot tree: Graphlan
-
+step1: only tree
+```
+graphlan.py RefSoil_bac.tree step1.pn --dpi 300 --size 15 --pad 0.6
+```
+step2: add color for phylum
+```
+python MakeAnno_RefSoil_no_ring.py RefSoil_v1.txt.split.bacteria.txt RefSoil_bacAnno.txt
+graphlan_annotate.py --annot RefSoil_bacAnno.txt RefSoil_bac.tree step2.xml
+graphlan.py step2.xml step2.png --dpi 300 --size 15 --pad 0.6
+```
 ##below here, not used
 
 ### Clustalo
