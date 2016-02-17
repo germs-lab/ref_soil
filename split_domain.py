@@ -2,10 +2,11 @@
 #this script sperate RefSoil list into different domain
 #usage: python split_domain.py RefSoil_v1.txt
 import sys
-fread = sys.argv[1]
-bwrite = sys.argv[1]+".split.bacteria.txt"
-awrite = sys.argv[1]+".split.archaea.txt"
-fwrite = sys.argv[1]+".split.fungi.txt"
+fread = open(sys.argv[1],'r')
+fread.next()
+bwrite = open(sys.argv[1]+".split.bacteria.txt",'w')
+awrite = open(sys.argv[1]+".split.archaea.txt",'w')
+fwrite = open(sys.argv[1]+".split.fungi.txt",'w')
 
 for line in fread:
     splt = line.strip().split("\t")
