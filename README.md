@@ -172,6 +172,22 @@ python MakeAnno_RefSoil_legend.py RefSoil_v1.txt.split.bacteria.txt legend_anno.
 graphlan_annotate.py --annot legend_anno.txt step3.xml step4.xml
 graphlan.py step4.xml step4.png --dpi 300 --size 15 --pad 0.6 --external_legends
 ```
+
+2. Compare to RefSeq
+---
+## get taxonomy from RefSoil
+```
+for x in *.gbk;do python /mnt/data3/jin_refseq/release74/dev/ncbi_tools/genbank_to_taxon.py $x;done > RefSoil_bac_tax.txt
+cat RefSoil_bac_tax.txt|cut -f2|sort|uniq > RefSoil_bac_uniq_tax.txt
+python /mnt/data3/jin_refseq/release74/dev/taxonomy_finder/id_to_tax.py RefSoil_bac_uniq_tax.txt > RefSoil_Full_taxonomy.txt
+```
+## get taxonomy from RefSeq
+```    
+for x in *.gbff ;do python /mnt/data3/jin_refseq/release74/dev/ncbi_tools/genbank_to_taxon.py $x;done > bacteria.tax.txt
+cat bacteria.tax.txt|cut -f2|sort|uniq > RefSeq_bac_uniq_tax.txt
+python /mnt/data3/jin_refseq/release74/dev/taxonomy_finder/id_to_tax.py RefSeq_bac_uniq_tax.txt > RefSeq_Full_taxonomy.txt
+```
+
 ##below here, not used
 
 ### Clustalo
