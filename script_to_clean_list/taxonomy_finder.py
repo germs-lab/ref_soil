@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# this module return full taxonomy lineage. Cannot handle multiple genbank info in one file. should be one genbank id in each file
 import urllib
 import cStringIO
 import pycurl
@@ -101,6 +102,7 @@ def full(filename):
                 full_tax = full_tax + item+'\t'
             #print full_tax
             flag = 0
+            return full_tax
         elif (gbline.strip()[:2] == "//" and plasmid == 1):
             plasmid = 0
 
