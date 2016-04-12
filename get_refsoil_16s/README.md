@@ -111,7 +111,7 @@ $ python FetchPartFastaPart.py RefSoil16sHMM.txt RefSoil16s
 ```
 #### change name and merge
 ```
-$ for x in RefSoil16s/*; do python changename.py $x;done
+$ python changename.py filename.fa
 $ cat RefSoil16s/*.fa > HMM16smerged.fa
 ```
 #### Finally, let's merge 16s Files into one

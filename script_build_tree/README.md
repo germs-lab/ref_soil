@@ -13,7 +13,7 @@ $ ~/infernal-1.1.1-linux-intel-gcc/binaries/esl-reformat afa RefSoil_bac_ali.sto
 #### Build tree using Fasttree
 ```
 $ wget http://www.microbesonline.org/fasttree/FastTree
-$ chmod 655 FastTree
+$ chmod +x FastTree
 $ ./FastTree -nt < RefSoil_bac_ali.afa > RefSoil_bac.tree
 ```
 ### Step2: make annotation file, visualizing
