@@ -129,11 +129,11 @@ def assigned_phylum_color(tax):
         dict[spl[1]] = spl[2]
     for i in range(len(tax)):
         temp = []
-    if dict.has_key(tax[i][1]):
-        temp = [tax[i][1],dict[tax[i][1]]]
-    else:
-        temp = [tax[i][1],"#000000"]
-    class_color.append(temp)
+        if dict.has_key(tax[i][1]):
+            temp = [tax[i][1],dict[tax[i][1]]]
+        else:
+            temp = [tax[i][1],"#000000"]
+        class_color.append(temp)
     return class_color
 
 def AssignColor(Tax):
