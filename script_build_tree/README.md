@@ -54,6 +54,7 @@ You will have Taxonomy file
 Then, make guide file
 ```
 python rdp_to_guide.py EMP_soil_RDP_taxonomy.txt EMP_soil_map.txt > EMP_soil_guide.txt
+sort EMP_soil_guide.txt|uniq > EMP_soil_guide_uniq.txt
 ```
 You are ready to draw tree
 
