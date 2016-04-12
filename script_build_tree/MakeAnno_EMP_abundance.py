@@ -15,8 +15,11 @@ for line in Abunin:
 
 biggest = 0.0
 for item in dict.items():
-    x = math.log(float(item[1]),10)
-    dict[item[0]]=str(x)
+    if (log == 1):
+        x = math.log(float(item[1]),10)
+        dict[item[0]]=str(x)
+    else:
+        x = float(item[1])
     if (x > biggest):
         biggest = x
 
