@@ -19,23 +19,24 @@ $ ./FastTree -nt < RefSoil_bac_ali.afa > RefSoil_bac.tree
 ### Step2: make annotation file, visualizing
 #### Add color for phylum
 ```
-python ../../dev/GraphlanInput/make_anno_refsoil.py RefSoil_v1.txt.split.bacteria.txt anno.step2.txt
+python split_domain.py ../../ref_soil/RefSoil_v1.txt
+python make_anno_refsoil.py RefSoil_v1.txt.split.bacteria.txt anno.step2.txt
 graphlan_annotate.py --annot anno.step2.txt RefSoil_bac.tree step2.xml
 ```
 #### This step add first ring
 ```
-python ../../dev/GraphlanInput/add_kingdom.py RefSoil_v1.txt.split.bacteria.txt anno.step3.txt
+python add_kingdom.py RefSoil_v1.txt.split.bacteria.txt anno.step3.txt
 graphlan_annotate.py --annot anno.step3.txt step2.xml step3.xml
 ```
 #### This step add legend
 ```
-python ../../dev/GraphlanInput/add_legend.py RefSoil_v1.txt.split.bacteria.txt anno.step4.txt
+python add_legend.py RefSoil_v1.txt.split.bacteria.txt anno.step4.txt
 graphlan_annotate.py --annot anno.step4.txt step3.xml step4.xml
 ```
 #### Add soil type
 ```
-python ../dev/emp_tools/make_abun_table.py soil_type_count.txt refsoil_emp_blast.out.txt > soil_type_abun.txt
-python ../../dev/GraphlanInput/add_ring_soil_type.py soil_type_abun.txt anno.step5.txt
+python make_abun_table.py soil_type_count.txt refsoil_emp_blast.out.txt > soil_type_abun.txt
+python add_ring_soil_type.py soil_type_abun.txt anno.step5.txt
 graphlan_annotate.py --annot anno.step5.txt step4.xml step5.xml
 ```
 #### Finally generate tree figure
