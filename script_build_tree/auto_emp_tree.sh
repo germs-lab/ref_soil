@@ -8,3 +8,6 @@ python get_emp_count.py EMP_count.txt RefSoil_guide_ar_bac.uniq.txt > refsoil_co
 python MakeAnno_EMP_abundance.py EMP_count.txt anno.emp.count.txt
 graphlan_annotate.py --annot anno.emp.count.txt EMP_step4.xml EMP_step5.xml
 graphlan.py EMP_step5.xml EMP_step5.png --dpi 300 --size 15 --pad 0.6 --external_legends
+python add_marker.py sc_guide.txt anno.sc.txt
+graphlan_annotate.py --annot anno.sc.txt EMP_step5.xml EMP_step6.xml
+graphlan.py EMP_step6.xml EMP_step6.png --dpi 300 --size 15 --pad 0.6 --external_legends
