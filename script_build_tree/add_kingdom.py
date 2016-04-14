@@ -30,7 +30,7 @@ for i in range(len(Tax)):
     elif(Tax[i][0] == KingdomColor[1][0]):
         kingColor = KingdomColor[1][1]
     if (Tax[i][5] != ""):
-        #fwrite.write(Tax[i][7]+'\t'+"annotation_background_color"+'\t'+tempColor+'\n')
+        fwrite.write(Tax[i][7]+'\t'+"annotation_background_color"+'\t'+tempColor+'\n')
         #fwrite.write(Tax[i][7]+'\t'+"annotation"+'\t'+tempColor+'\n')
         fwrite.write(Tax[i][7]+'\t'+"ring_width"+'\t'+"1"+'\t'+"4"+'\n')
         fwrite.write(Tax[i][7]+'\t'+"ring_height"+'\t'+"1"+'\t'+"0.1"+'\n')
