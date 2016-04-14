@@ -13,8 +13,6 @@ annotation_background_separation	-0.03
 annotation_background_offset	0.0
 annotation_background_width	0.07
 annotation_background_alpha	0.1
-ring_internal_separator_thickness	1	0.5
-ring_separator_color			1	#888888
 ring_internal_separator_thickness	2	0.5
 ring_separator_color			2	#888888
 ring_internal_separator_thickness	3	0.5
@@ -29,4 +27,9 @@ ring_internal_separator_thickness	7	0.5
 ring_separator_color			7	#888888	
 ring_internal_separator_thickness	8	0.5	
 ring_separator_color			8	#888888	
-
+ring_internal_separator_thickness       9       0.5
+ring_separator_color                    9       #888888
+ring_internal_separator_thickness       10       0.5
+ring_separator_color                    10       #888888
+ring_internal_separator_thickness       11       0.5
+ring_separator_color                    11       #888888
