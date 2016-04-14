@@ -31,5 +31,4 @@ ring_internal_separator_thickness	9	0.5
 ring_separator_color			9	#888888
 ring_internal_separator_thickness	10	0.5
 ring_separator_color			10	#888888
-ring_internal_separator_thickness	11	0.5
-ring_separator_color			11	#888888
+
