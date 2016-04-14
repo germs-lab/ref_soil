@@ -48,6 +48,8 @@ graphlan.py step5.xml step5.png --dpi 300 --size 15 --pad 0.6 --external_legends
 Running RDP classifier
 ```
 java -Xmx1g -jar ~/RDPTools/classifier.jar classify -o EMP_soil_RDP_taxonomy.txt -h EMP_soil_RDP_hier.txt JavaNewSoilRepSet.fna
+java -Xmx1g -jar ~/RDPTools/classifier.jar classify -o RefSoil_RDP_taxonomy.txt -h RefSoil\
+_RDP_hier.txt RefSoil_ar_bac_16s.txt
 ```
 You will have Taxonomy file
 
@@ -55,6 +57,8 @@ Then, make guide file
 ```
 python rdp_to_guide.py EMP_soil_RDP_taxonomy.txt EMP_soil_map.txt > EMP_soil_guide.txt
 sort EMP_soil_guide.txt|uniq > EMP_soil_guide_uniq.txt
+python rdp_to_guide.py RefSoil_RDP_taxonomy.txt RefSoil_map.txt > RefSoil_guide_ar_bac.txt
+sort RefSoil_guide_ar_bac.txt |uniq > RefSoil_guide_ar_bac.uniq.txt
 ```
 You are ready to draw tree
 
@@ -71,13 +75,13 @@ graphlan.py EMP_step2.xml EMP.step2.png --dpi 300 --size 15 --pad 0.6
 ```
 step3: add refsoil ring
 ```
-python ../Dev/GraphlanInput/add_refsoil_ring.py RefSoil_guide_ar_bac.txt anno_step3.txt
+python add_refsoil_ring.py RefSoil_guide_ar_bac.txt anno_step3.txt
 graphlan_annotate.py --annot anno_step3.txt EMP_step2.xml EMP_step3.xml
 graphlan.py EMP_step3.xml EMP_step3.png --dpi 300 --size 15 --pad 0.6
 ```
 step4: add single cell ring
 ```
-python ../Dev/GraphlanInput/Guide_Add_Ring_SingleCell.py /mnt/data2/jin_emp/emp/Dev/GraphlanInput/singlecell.unix.txt anno_step4.txt
+python Guide_Add_Ring_SingleCell.py /mnt/data2/jin_emp/emp/Dev/GraphlanInput/singlecell.unix.txt anno_step4.txt
 graphlan_annotate.py --annot anno_step4.txt EMP_step3.xml EMP_step4.xml
 graphlan.py EMP_step4.xml EMP.step4.png --dpi 300 --size 15 --pad 0.6
 ```
@@ -92,7 +96,7 @@ python get_emp_count.py EMP_count.txt RefSoil_guide_ar_bac.txt > refsoil_count.t
 ```
 make annotation
 ```
-python ../Dev/GraphlanInput/MakeAnno_EMP_abundance.py EMP_count.txt anno.emp.count.txt
+python MakeAnno_EMP_abundance.py EMP_count.txt anno.emp.count.txt
 graphlan_annotate.py --annot anno.emp.count.txt EMP_step4.xml EMP_step5.xml
 graphlan.py EMP_step5.xml EMP_step5.png --dpi 300 --size 15 --pad 0.6 --external_legends
 ```
