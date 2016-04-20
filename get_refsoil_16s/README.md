@@ -164,3 +164,11 @@ python MakeAnno_RefSoil_legend.py RefSoil_v1.txt.split.bacteria.txt legend_anno.
 graphlan_annotate.py --annot legend_anno.txt step3.xml step4.xml
 graphlan.py step4.xml step4.png --dpi 300 --size 15 --pad 0.6 --external_legends
 ```
+### To get Archaea 16s, repeat process
+```
+python ../ref_soil/get_refsoil_16s/fetch-genomes2.py ../ref_soil/RefSoil_v1.txt.archaea.txt RefSoil_v1_archaea
+for x in RefSoil_v1_archaea/*.gbk;do python ../ref_soil/get_refsoil_16s/parse-genbank.py $x > $x.16S.fa;done
+mkdir RefSoil_ar_16s
+mv RefSoil_v1_archaea/*.16S.fa RefSoil_ar_16s
+cat *.fa > RefSoil_ar_16s.fa
+```
