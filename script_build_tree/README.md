@@ -19,12 +19,13 @@ $ ./FastTree -nt < RefSoil_bac_ali.afa > RefSoil_bac.tree
 #### split domain
 ```
 python split_domain.py ../RefSoil_v1.txt
+python remove_missing.py missing.txt ../RefSoil_v1.txt.split.bacteria.txt > bacteria.txt
 ```
 ### Step2: make annotation file, visualizing
 #### Add color for phylum
 ```
 python split_domain.py ../../ref_soil/RefSoil_v1.txt
-python make_anno_refsoil.py RefSoil_v1.txt.split.bacteria.txt anno.step2.txt
+python make_anno_refsoil.py bacteria.txt anno.step2.txt
 graphlan_annotate.py --annot anno.step2.txt RefSoil_bac.tree step2.xml
 ```
 #### This step add first ring
