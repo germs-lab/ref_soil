@@ -16,6 +16,10 @@ $ wget http://www.microbesonline.org/fasttree/FastTree
 $ chmod +x FastTree
 $ ./FastTree -nt < RefSoil_bac_ali.afa > RefSoil_bac.tree
 ```
+#### split domain
+```
+python split_domain.py ../RefSoil_v1.txt
+```
 ### Step2: make annotation file, visualizing
 #### Add color for phylum
 ```
