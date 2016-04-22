@@ -6,7 +6,7 @@ import modules
 import math
 Abunin = open(sys.argv[1],'r')
 fwrite = open(sys.argv[2],'w')
-log = 0
+log = 1
 height = 1
 dict = {}
 for line in Abunin:
