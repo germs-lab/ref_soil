@@ -26,7 +26,7 @@ for item in dict.items():
 for item in dict.items():
     alpha = float(item[1])/biggest
     
-    fwrite.write(item[0]+'\t'+"ring_width"+'\t'+"9"+'\t'+"1"+'\n')
-    fwrite.write(item[0]+'\t'+"ring_height"+'\t'+"9"+'\t'+str(height)+'\n')
-    fwrite.write(item[0]+'\t'+"ring_color"+'\t'+"9"+'\t'+"g"+'\n')
-    fwrite.write(item[0]+'\t'+"ring_alpha"+'\t'+"9"+'\t'+str(alpha)+'\n')
+    fwrite.write(item[0]+'\t'+"ring_width"+'\t'+"1"+'\t'+"1"+'\n')
+    fwrite.write(item[0]+'\t'+"ring_height"+'\t'+"1"+'\t'+str(height)+'\n')
+    fwrite.write(item[0]+'\t'+"ring_color"+'\t'+"1"+'\t'+"g"+'\n')
+    fwrite.write(item[0]+'\t'+"ring_alpha"+'\t'+"1"+'\t'+str(alpha)+'\n')
