@@ -28,8 +28,7 @@ KingdomColor = [["Bacteria",'#EE6A50'],["Archaea",'#9ACD32']]
 # Write annotation
 for item in classColor:
     #fwrite.write(item[0]+'\t'+"annotation"+'\t'+"*:"+item[0]+'\n')
-    fwrite.write(item[0]+'\t'+"annotation"+'\t'+item[0]+'\n') 
-    fwrite.write(item[0]+'\t'+"annotation"+'\t'+item[0]+'\n')
+    #fwrite.write(item[0]+'\t'+"annotation"+'\t'+item[0]+'\n')
     fwrite.write(item[0]+'\t'+"annotation_background_color"+'\t'+item[1]+'\n')
     fwrite.write(item[0]+'\t'+"clade_marker_color"+'\t'+item[1]+'\n')
     fwrite.write(item[0]+'\t'+"clade_marker_size"+'\t'+"30"+'\n')
