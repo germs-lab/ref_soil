@@ -20,7 +20,7 @@ KingdomColor = [["Bacteria",'#EE6A50'],["Archaea",'#9ACD32']]
 
 #print legend
 for i in classColor:
-    fwrite.write(i[0]+'\t'+"annotation"+'\t'+i[0]+'\n')
+    fwrite.write(i[0]+'\t'+"annotation"+'\t'+"*:"+i[0]+'\n')
     fwrite.write(i[0]+'\t'+"annotation_background_color"+'\t'+i[1]+'\n')
     fwrite.write(i[0]+'\t'+"clade_marker_color"+'\t'+i[1]+'\n')
     fwrite.write(i[0]+'\t'+"annotation_legend_font_size"+'\t'+"2"+'\n')
