@@ -1,4 +1,5 @@
 #most wanted
+## most prevalence
 ```
 python ../../ref_soil/script_most_wanted/nonzero.py ../soil_emp_table.biom > nonzero.out2
 sort -n -r -k 2 nonzero.out2 |head -n 100 > 100_most_ubiq_id.txt
@@ -23,4 +24,9 @@ blastn -db ../../emp/blast/DB/refsoil -query abun_seq_to_blast.fna -evalue 1e-5 
 python ../script_soil_type/cutoff.py abun.blast.out > abun.over97.txt
 cut -f1 abun.over97.txt > abun_id_to_remove.txt
 python remove_refsoil.py abun_id_to_remove.txt 100_most_abun_sorted.txt > most_wanted_abun.txt
+```
+
+## both abundance and prevalence
+```
+python both.py most_wanted_abun.txt most_wanted_ubiq.txt > most_wanted.txt
 ```
