@@ -52,3 +52,4 @@ for i in range(len(Tax)):
             dict[Tax[i][1]]=[temple,Tax[i][7]]
 for item in dict.items():
     fwrite.write(item[1][1]+'\t'+"annotation"+'\t'+item[1][0]+":"+item[0]+'\n')
+    fwrite.write(item[1][1]+'\t'+"annotation_font_size"+'\t'+"20"+'\n')

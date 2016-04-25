@@ -8,7 +8,7 @@ filein = sys.argv[1]
 fileout = sys.argv[2]
 
 full_path = os.path.realpath(__file__)
-filedefault = os.path.dirname(full_path)+"/DefaultAnnoNoRing.txt"
+filedefault = os.path.dirname(full_path)+"/default_refsoil.txt"
 
 deread = open(filedefault,'r')
 fwrite = open(fileout,'w')
@@ -29,7 +29,8 @@ KingdomColor = [["Bacteria",'#EE6A50'],["Archaea",'#9ACD32']]
 for item in classColor:
     #fwrite.write(item[0]+'\t'+"annotation"+'\t'+"*:"+item[0]+'\n')
     #fwrite.write(item[0]+'\t'+"annotation"+'\t'+item[0]+'\n')
-    fwrite.write(item[0]+'\t'+"annotation_background_color"+'\t'+item[1]+'\n')
+    #fwrite.write(item[0]+'\t'+"annotation_background_color"+'\t'+item[1]+'\n')
+    
     fwrite.write(item[0]+'\t'+"clade_marker_color"+'\t'+item[1]+'\n')
     fwrite.write(item[0]+'\t'+"clade_marker_size"+'\t'+"30"+'\n')
     fwrite.write(item[0]+'\t'+"clade_marker_edge_width"+'\t'+"0.1"+'\n')

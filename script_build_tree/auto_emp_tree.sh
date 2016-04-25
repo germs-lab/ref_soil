@@ -7,4 +7,5 @@ graphlan_annotate.py --annot anno_step4.txt EMP_step3.xml EMP_step4.xml
 python get_emp_count.py EMP_count.txt RefSoil_guide_ar_bac.uniq.txt > refsoil_count.txt
 python MakeAnno_EMP_abundance.py EMP_count.txt anno.emp.count.txt
 graphlan_annotate.py --annot anno.emp.count.txt EMP_step4.xml EMP_step5.xml
-graphlan.py EMP_step5.xml EMP_step5.png --dpi 300 --size 15 --pad 0.6 --external_legends
+graphlan.py EMP_step5.xml EMP_step5.png --dpi 300 --size 15 --pad 0.6
+#graphlan.py EMP_step5.xml EMP_step5.png --dpi 300 --size 15 --pad 0.6 --external_legends

@@ -1,7 +1,7 @@
 total_plotted_degrees	340
 start_rotation	270
-class_legend_font_size	12
-annotation_legend_font_size	11
+class_legend_font_size	20
+annotation_legend_font_size	12
 branch_bracket_depth	0.0
 clade_marker_size	3.0
 clade_separation	0.5
