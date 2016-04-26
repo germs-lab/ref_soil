@@ -25,7 +25,7 @@ for line in open(sys.argv[4],'r'):
     if not (dict.has_key(spl[0])):
         continue
     temp = [spl[0],','.join(dict[spl[0]])]
-    temp.append(tax[spl[0]])
+    temp.append(tax[spl[0]][1])
     for i in range(1,len(spl)):
         temp.append(spl[i])
     print '\t'.join(temp)
