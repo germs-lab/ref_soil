@@ -140,7 +140,7 @@ def assigned_phylum_color_le(tax):
     fread = open('refsoil_phylum_color.unix.txt')
     class_color = []
     dict = {}    
-    le = ['a','b','c','d','e','f','g','h','i','j','k','l','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    le = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     j = 0
     for line in fread:
         spl = line.strip().split('\t')
@@ -151,7 +151,7 @@ def assigned_phylum_color_le(tax):
         if dict.has_key(tax[i][1]):
             temp = [tax[i][1],dict[tax[i][1]][0],dict[tax[i][1]][1]]
         else:
-            temp = [tax[i][1],"#000000","Z"]
+            temp = [tax[i][1],"#000000",""]
         class_color.append(temp)
     return class_color
 
