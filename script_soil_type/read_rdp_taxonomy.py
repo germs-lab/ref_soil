@@ -58,9 +58,9 @@ def tax_table(filename):
 def get_tax_dict(filename):
     tax = {}
     for line in open(filename,'r'):
-        table = tax_table(line)
+        ta = table(line)
         temp = []
-        for i in range(1,len(table)):
-            temp.append(table[i])
-        tax[table[0]]=temp
+        for i in range(1,len(ta)):
+            temp.append(ta[i])
+        tax[ta[0]]=temp
     return tax
