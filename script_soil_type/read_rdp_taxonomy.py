@@ -33,7 +33,7 @@ def get_tax_dict(filename):
     tax = {}
     table = tax_table(filename)
     temp = []
-    for i range(1,len(table)):
+    for i in range(1,len(table)):
         temp.append(table[i])
     tax[table[0]]=temp
     return tax
