@@ -6,7 +6,7 @@ import sys
 import read_rdp_taxonomy
 dict = {}
 for line in open(sys.argv[1],'r'):
-    tax = read_rdp_taxonomy.get_tax_dict(line)
+    tax = read_rdp_taxonomy.table(line)
     if dict.has_key(tax[2]):
         temp = dict[tax[2]]
         dict[tax[2]] = temp + 1
