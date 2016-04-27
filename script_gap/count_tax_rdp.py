@@ -14,4 +14,4 @@ for line in open(sys.argv[1],'r'):
         dict[tax[2]] = 1
 
 for item in dict.items():
-    print item[0],item[1]
+    print '\t'.join([item[0],item[1]])
