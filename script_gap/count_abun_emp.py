@@ -39,5 +39,5 @@ for line in repread:
         final[temp[1]] = float(temp[2])
 
 for item in final.items():
-    print '\t'.join([item[0],item[1]])
+    print '\t'.join([item[0],str(item[1])])
         
