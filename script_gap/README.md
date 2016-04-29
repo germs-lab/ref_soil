@@ -26,5 +26,5 @@ python ../../ref_soil/script_gap/count_abun_emp.py ../soil_emp_table.summary ../
 ```
 ### number of OTUs for each phylum in EMP-soil
 ```
-python ../../ref_soil/script_gap/coun_tax_rdp.py ../soil_emp_rdp_tax/EMP_soil_RDP_taxonomy.txt > emp_soil_num_otu_phylum.txt
+python ../../ref_soil/script_gap/count_tax_rdp.py ../soil_emp_rdp_tax/EMP_soil_RDP_taxonomy.txt > emp_soil_num_otu_phylum.txt
 ```
