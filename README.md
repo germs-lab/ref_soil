@@ -39,6 +39,12 @@ python script_download_refsoil/fetch_fasta_cds.py script_download_refsoil/refsoi
 python script_download_refsoil/fetch_fasta_protein.py script_download_refsoil/refsoil_id.txt refsoil_protein_fasta
 ```
 
+#### Download single cell genome
+NCBI ID of single cell genomes are in the file "sc_id.txt". You can use same script above with the ID-file
+```
+python script_download_refsoil/fetch_genbank.py script_download_refsoil/sc_id.txt single_cell_genome
+```
+
 ## List of the script
 [Get 16s rRNA gene sequences](https://github.com/germs-lab/ref_soil/tree/master/get_refsoil_16s)
 
